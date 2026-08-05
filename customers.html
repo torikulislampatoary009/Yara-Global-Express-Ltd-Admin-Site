@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Customers | Yeara Global Express
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+<header class="admin-header">
+
+    <div class="admin-brand">
+
+        <div class="logo-symbol">
+            Y
+        </div>
+
+        <div>
+
+            <strong>
+                YEARA
+            </strong>
+
+            <small>
+                GLOBAL EXPRESS
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-user">
+
+        <span id="adminName">
+            Admin
+        </span>
+
+        <button id="logoutButton">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<nav class="admin-nav">
+
+    <a href="dashboard.html">
+        Dashboard
+    </a>
+
+    <a href="shipments.html">
+        Shipments
+    </a>
+
+    <a href="quote-requests.html">
+        Quote Requests
+    </a>
+
+    <a
+        href="customers.html"
+        class="active"
+    >
+        Customers
+    </a>
+
+    <a href="accounting.html">
+        Accounting
+    </a>
+
+</nav>
+
+
+
+<main class="dashboard">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="page-label">
+                CUSTOMER MANAGEMENT
+            </span>
+
+            <h1>
+                Customers
+            </h1>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="addCustomerButton"
+        >
+            + Add Customer
+        </button>
+
+    </div>
+
+
+
+    <section class="table-card">
+
+        <div class="table-toolbar">
+
+            <input
+                type="text"
+                id="customerSearch"
+                placeholder="Search name, phone, company..."
+            >
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Customer
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            Company
+                        </th>
+
+                        <th>
+                            Location
+                        </th>
+
+                        <th>
+                            Shipments
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="customerTableBody"
+                ></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- ===================================
+     CUSTOMER MODAL
+=================================== -->
+
+<div
+    class="modal-overlay"
+    id="customerModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="page-label">
+                    CUSTOMER
+                </span>
+
+                <h2 id="customerModalTitle">
+                    Add Customer
+                </h2>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="closeCustomerModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="customerForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Company
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerCompany"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        City
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerCity"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Country
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerCountry"
+                        value="Bangladesh"
+                    >
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Address
+                    </label>
+
+                    <textarea
+                        id="customerAddress"
+                        rows="3"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+                      <div
+                        id="quoteFormMessage"
+                        class="quote-form-message"
+                       ></div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelCustomerButton"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="saveCustomerButton"
+                >
+                    Save Customer
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ===================================
+     CUSTOMER DETAILS MODAL
+=================================== -->
+
+<div
+    class="modal-overlay"
+    id="customerDetailsModal"
+>
+
+    <div class="modal customer-details-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="page-label">
+                    CUSTOMER PROFILE
+                </span>
+
+                <h2 id="detailsCustomerName">
+                    Customer
+                </h2>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="closeDetailsModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="customerDetails"
+            class="customer-details"
+        ></div>
+
+    </div>
+
+</div>
+
+
+
+<script src="js/customers.js"></script>
+
+</body>
+
+</html>

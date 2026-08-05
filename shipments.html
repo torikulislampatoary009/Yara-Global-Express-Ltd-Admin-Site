@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Shipments | Yeara Global Express
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+<header class="admin-header">
+
+    <div class="admin-brand">
+
+        <div class="logo-symbol">
+            Y
+        </div>
+
+        <div>
+
+            <strong>YEARA</strong>
+
+            <small>
+                GLOBAL EXPRESS
+            </small>
+
+        </div>
+
+    </div>
+
+    <nav class="admin-nav">
+
+     <a href="dashboard.html">
+        Dashboard
+     </a>
+
+     <a href="shipments.html">
+        Shipments
+     </a>
+
+     <a href="customers.html">
+        Customers
+     </a>
+
+     <a href="quote-requests.html">
+        Quote Requests
+     </a>
+
+     <a href="accounting.html">
+        Accounting
+     </a>
+
+   </nav>
+
+    <div class="admin-user">
+
+        <span id="adminName">
+            Admin
+        </span>
+
+        <button id="logoutButton">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main class="dashboard">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="page-label">
+                MANAGEMENT
+            </span>
+
+            <h1>
+                Shipments
+            </h1>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="openCreateShipment"
+        >
+            + New Shipment
+        </button>
+
+    </div>
+
+
+
+    <!-- Search -->
+
+    <section class="table-card">
+
+        <div class="table-toolbar">
+
+            <input
+                type="text"
+                id="searchShipment"
+                placeholder="Search tracking number, customer..."
+            >
+
+
+            <select id="statusFilter">
+
+                <option value="">
+                    All Status
+                </option>
+
+                <option value="booked">
+                    Booked
+                </option>
+
+                <option value="picked_up">
+                    Picked Up
+                </option>
+
+                <option value="processing">
+                    Processing
+                </option>
+
+                <option value="departed">
+                    Departed
+                </option>
+
+                <option value="in_transit">
+                    In Transit
+                </option>
+
+                <option value="arrived">
+                    Arrived
+                </option>
+
+                <option value="customs">
+                    Customs
+                </option>
+
+                <option value="out_for_delivery">
+                    Out For Delivery
+                </option>
+
+                <option value="delivered">
+                    Delivered
+                </option>
+
+                <option value="cancelled">
+                    Cancelled
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Tracking</th>
+
+                        <th>Customer</th>
+
+                        <th>Destination</th>
+
+                        <th>Service</th>
+
+                        <th>Status</th>
+
+                        <th>Date</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="shipmentTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+    
+
+</main>
+
+
+
+<!-- =========================================
+     CREATE SHIPMENT MODAL
+========================================= -->
+
+<div
+    class="modal-overlay"
+    id="shipmentModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    Create Shipment
+                </h2>
+
+                <p>
+                    Enter shipment information.
+                </p>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeShipmentModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <form id="shipmentForm">
+
+
+            <div class="form-section">
+
+                <h3>
+                    Sender Information
+                </h3>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for=sender_name>
+                            Sender Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="sender_name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="sender_phone">
+                            Sender Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            id="sender_phone"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="sender_address">
+                            Sender Address
+                        </label>
+
+                        <textarea
+                            id="sender_address"
+                        ></textarea>
+
+                    </div>
+
+                    <!--<div class="form-group">
+
+                       <label for="shipmentCustomer">
+                          Customer *
+                       </label>
+
+                       <select
+                          id="shipmentCustomer"
+                          required
+                        >
+
+                         <option value="">
+                            Select Customer
+                         </option>
+
+                        </select>
+
+                    </div>-->
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-section">
+
+                <h3>
+                    Receiver Information
+                </h3>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Receiver Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="receiver_name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Receiver Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            id="receiver_phone"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Receiver Address
+                        </label>
+
+                        <textarea
+                            id="receiver_address"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-section">
+
+                <h3>
+                    Shipment Information
+                </h3>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Origin Country *
+                        </label>
+
+                        <input type="text"
+                            id="origin_country"
+                            value="Bangladesh"
+                            placeholder="Bangladesh"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Destination Country *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="destination_country"
+                            placeholder="UK"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Service Type
+                        </label>
+
+                        <select name="service" id="service_type">
+                            <option>
+                                International Express
+                            </option>
+
+                            <option>
+                                Economy Courier
+                            </option>
+
+                            <option>
+                                Document Delivery
+                            </option>
+
+                            <option>
+                                Parcel Delivery
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Package Type
+                        </label>
+
+                        <select id="package_type">
+
+                            <option>
+                                Documents
+                            </option>
+
+                            <option>
+                                Parcel
+                            </option>
+
+                            <option>
+                                Box
+                            </option>
+
+                            <option>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Weight (KG)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="weight"
+                            min="0"
+                            step="0.01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Shipping Charge
+                        </label>
+
+                        <input
+                            type="number"
+                            id="shipping_charge"
+                            min="0"
+                            step="0.01"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Estimated Delivery
+                        </label>
+
+                        <input
+                            type="date"
+                            id="estimated_delivery"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="form-message"
+                id="shipmentFormMessage"
+            ></div>
+
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelShipment"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="createShipmentButton"
+                >
+                    Create Shipment
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!--
+<div
+    class="modal-overlay"
+    id="shipmentModal"
+>
+
+    <div class="modal shipment-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="page-label">
+                    SHIPMENT DETAILS
+                </span>
+
+                <h2 id="modalTrackingNumber">
+                    Shipment
+                </h2>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="closeShipmentModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="shipmentDetails"
+            class="shipment-details"
+        >
+        </div>
+
+
+        <div class="tracking-event-form">
+
+            <h3>
+                Add Tracking Event
+            </h3>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="eventStatus">
+
+                        <option value="booked">
+                            Booked
+                        </option>
+
+                        <option value="picked_up">
+                            Picked Up
+                        </option>
+
+                        <option value="departed">
+                            Departed
+                        </option>
+
+                        <option value="in_transit">
+                            In Transit
+                        </option>
+
+                        <option value="arrived">
+                            Arrived
+                        </option>
+
+                        <option value="customs">
+                            Customs
+                        </option>
+
+                        <option value="out_for_delivery">
+                            Out for Delivery
+                        </option>
+
+                        <option value="delivered">
+                            Delivered
+                        </option>
+
+                        <option value="exception">
+                            Exception
+                        </option>
+
+                        <option value="cancelled">
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="eventLocation"
+                        placeholder="Dhaka, Bangladesh"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="eventDescription"
+                    rows="3"
+                    placeholder="Shipment departed from Dhaka International Airport."
+                ></textarea>
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                id="addTrackingEventButton"
+            >
+                Add Tracking Event
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<button
+    class="table-button"
+    onclick="openShipment(${shipment.id})"
+>
+    View
+</button>
+-->
+
+
+<script src="js/shipments.js"></script>
+
+</body>
+
+</html>

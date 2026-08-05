@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Dashboard | Yeara Global Express
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <header class="admin-header">       
+
+        <div class="admin-brand">
+
+            <div class="logo-symbol">
+                Y
+            </div>
+
+            <div>
+
+                <strong>
+                    YEARA
+                </strong>
+
+                <small>
+                    GLOBAL EXPRESS
+                </small>
+
+            </div>
+
+        </div>
+        <nav class="admin-nav">
+
+           <a href="dashboard.html">
+             Dashboard
+            </a>
+
+            <a href="shipments.html">
+               Shipments
+            </a>
+
+             <a href="customers.html">
+               Customers
+             </a>
+
+             <a href="quote-requests.html">
+                Quote Requests
+             </a>
+
+            <a href="accounting.html">
+               Accounting
+            </a>
+
+        </nav>
+
+        <div class="admin-user">
+
+            <span id="adminName">
+                Admin
+            </span>
+
+            <button id="logoutButton">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main class="dashboard">
+
+
+        <div class="dashboard-heading">
+
+            <div>
+
+                <span>
+                    ADMIN PANEL
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+        </div>
+
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <span>
+                    Total Shipments
+                </span>
+
+                <strong id="totalShipments">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    In Transit
+                </span>
+
+                <strong id="inTransit">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    Delivered
+                </span>
+
+                <strong id="delivered">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    New Requests
+                </span>
+
+                <strong id="newRequests">
+                    0
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+        <section class="dashboard-placeholder">
+
+            <h2>
+                Courier Management
+            </h2>
+
+            <p>
+                Shipment management, tracking,
+                customers and quote requests
+                will appear here.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

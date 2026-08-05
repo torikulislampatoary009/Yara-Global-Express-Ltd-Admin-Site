@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Quote Requests | Yeara Global Express
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+<header class="admin-header">
+
+    <div class="admin-brand">
+
+        <div class="logo-symbol">
+            Y
+        </div>
+
+        <div>
+
+            <strong>YEARA</strong>
+
+            <small>
+                GLOBAL EXPRESS
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-user">
+
+        <span id="adminName">
+            Admin
+        </span>
+
+        <button id="logoutButton">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<nav class="admin-nav">
+
+    <a href="dashboard.html">
+        Dashboard
+    </a>
+
+    <a href="shipments.html">
+        Shipments
+    </a>
+
+    <a href="quote-requests.html">
+        Quote Requests
+    </a>
+
+    <a href="customers.html">
+        Customers
+    </a>
+
+    <a href="accounting.html">
+        Accounting
+    </a>
+
+</nav>
+
+
+
+<main class="dashboard">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="page-label">
+                CUSTOMER REQUESTS
+            </span>
+
+            <h1>
+                Quote Requests
+            </h1>
+
+        </div>
+
+    </div>
+
+
+
+    <section class="table-card">
+
+        <div class="table-toolbar">
+
+            <input
+                type="text"
+                id="searchRequest"
+                placeholder="Search customer, phone, destination..."
+            >
+
+
+            <select id="requestStatusFilter">
+
+                <option value="">
+                    All Status
+                </option>
+
+                <option value="new">
+                    New
+                </option>
+
+                <option value="contacted">
+                    Contacted
+                </option>
+
+                <option value="quoted">
+                    Quoted
+                </option>
+
+                <option value="converted">
+                    Converted
+                </option>
+
+                <option value="closed">
+                    Closed
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Customer
+                        </th>
+
+                        <th>
+                            Phone
+                        </th>
+
+                        <th>
+                            Route
+                        </th>
+
+                        <th>
+                            Service
+                        </th>
+
+                        <th>
+                            Weight
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="requestTableBody"
+                >
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- Request Details Modal -->
+
+<div
+    class="modal-overlay"
+    id="requestModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    Request Details
+                </h2>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeRequestModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="requestDetails"
+            class="request-details"
+        ></div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary-button"
+                id="closeRequestButton"
+            >
+                Close
+            </button>
+
+            <select
+                id="updateRequestStatus"
+            >
+
+                <option value="new">
+                    New
+                </option>
+
+                <option value="contacted">
+                    Contacted
+                </option>
+
+                <option value="quoted">
+                    Quoted
+                </option>
+
+                <option value="converted">
+                    Converted
+                </option>
+
+                <option value="closed">
+                    Closed
+                </option>
+
+            </select>
+
+            <button
+                class="primary-button"
+                id="saveRequestStatus"
+            >
+                Update Status
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="js/quote-requests.js"></script>
+
+</body>
+
+</html>
