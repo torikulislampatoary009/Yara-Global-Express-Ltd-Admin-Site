@@ -5,7 +5,7 @@ const loginError = document.getElementById("loginError");
 const loginButton = document.getElementById("loginButton");
 //kj
 
-const API_URL = "https://yge-backend-production.up.railway.app/api";
+const API_URL = "https://yge-backend.onrender.com/api";
 
 
 loginForm.addEventListener("submit", async (event) => {
