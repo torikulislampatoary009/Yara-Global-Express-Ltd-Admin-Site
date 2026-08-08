@@ -1,5 +1,5 @@
 const API_URL =
-    "https://yge-backend-production.up.railway.app/api";
+    "https:https://yge-backend.onrender.com/api";
 //jkj
 
 const token =
