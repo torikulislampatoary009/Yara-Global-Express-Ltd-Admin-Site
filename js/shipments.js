@@ -1,5 +1,5 @@
 const API_URL =
-    "https:https://yge-backend.onrender.com/api";
+    "https://yge-backend.onrender.com/api";
 //jkj
 
 const token =
