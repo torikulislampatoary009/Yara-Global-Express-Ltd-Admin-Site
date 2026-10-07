@@ -83,6 +83,19 @@
         Accounting
     </a>
 
+    <a href="rates.html">Rates</a>
+<a href="reports.html">
+        Reports
+    </a>
+
+    <a href="users.html">
+        Users
+    </a>
+
+    <a href="settings.html">
+        Settings
+    </a>
+
 </nav>
 
 
@@ -178,6 +191,7 @@
                             Weight
                         </th>
 
+                        <th>Priority</th>
                         <th>
                             Status
                         </th>
@@ -245,7 +259,9 @@
         ></div>
 
 
-        <div class="modal-actions">
+        <div class="form-group"><label>Priority</label><select id="updateRequestPriority"><option value="low">Low</option><option value="normal">Normal</option><option value="high">High</option><option value="urgent">Urgent</option></select></div><div class="form-group"><label>Internal Notes</label><textarea id="internalNotes" rows="3"></textarea></div>
+
+            <div class="modal-actions">
 
             <button
                 class="secondary-button"
@@ -295,6 +311,7 @@
 
 
 
+<script src="js/core.js"></script>
 <script src="js/quote-requests.js"></script>
 
 </body>

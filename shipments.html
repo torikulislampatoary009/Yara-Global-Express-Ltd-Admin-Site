@@ -66,7 +66,12 @@
         Accounting
      </a>
 
-   </nav>
+   
+    <a href="rates.html">Rates</a>
+<a href="reports.html">Reports</a>
+    <a href="users.html">Users</a>
+    <a href="settings.html">Settings</a>
+</nav>
 
     <div class="admin-user">
 
@@ -139,10 +144,7 @@
                     Picked Up
                 </option>
 
-                <option value="processing">
-                    Processing
-                </option>
-
+                
                 <option value="departed">
                     Departed
                 </option>
@@ -390,6 +392,14 @@
 
 
             <div class="form-section">
+                <h3>Shipment Reference</h3>
+                <div class="form-grid">
+                    <div class="form-group"><label>Tracking / AWB *</label><input id="tracking_id" required placeholder="DHL or internal AWB"></div>
+                    <div class="form-group"><label>Reference Number</label><input id="reference_number" placeholder="Customer reference"></div>
+                </div>
+            </div>
+
+            <div class="form-section">
 
                 <h3>
                     Shipment Information
@@ -488,10 +498,12 @@
 
 
                     <div class="form-group">
+                        <label>Pieces</label>
+                        <input type="number" id="pieces" min="1" value="1">
+                    </div>
 
-                        <label>
-                            Weight (KG)
-                        </label>
+                    <div class="form-group">
+                        <label>Weight (KG)</label>
 
                         <input
                             type="number"
@@ -504,10 +516,17 @@
 
 
                     <div class="form-group">
+                        <label>Declared Value</label>
+                        <input type="number" id="declared_value" min="0" step="0.01">
+                    </div>
 
-                        <label>
-                            Shipping Charge
-                        </label>
+                    <div class="form-group">
+                        <label>Currency</label>
+                        <select id="currency"><option>USD</option><option>BDT</option><option>EUR</option><option>GBP</option></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Shipping Charge</label>
 
                         <input
                             type="number"
@@ -738,6 +757,7 @@
 -->
 
 
+<script src="js/core.js"></script>
 <script src="js/shipments.js"></script>
 
 </body>
