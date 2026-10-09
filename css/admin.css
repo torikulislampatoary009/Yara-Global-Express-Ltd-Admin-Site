@@ -2040,3 +2040,12 @@ small{color:var(--muted)}
 }
 @media(max-width:420px){.stats-grid{grid-template-columns:1fr}.dashboard-heading h1,.page-header h1{font-size:25px}.admin-user button{padding:7px 10px}}
 @media print{.admin-header,.page-header .secondary-button{display:none!important}.dashboard{padding:0}.table-card{box-shadow:none}}
+
+/* Responsive accessible navigation */
+.nav-toggle{display:none;border:1px solid var(--border);background:#fff;border-radius:8px;padding:8px 11px;font-size:22px;line-height:1;cursor:pointer;color:var(--dark)}
+.admin-header{position:relative;gap:14px;z-index:20}
+.admin-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.admin-nav a{color:var(--text);text-decoration:none;font-size:12px;font-weight:650;white-space:nowrap}
+.admin-nav a:hover{color:var(--primary)}
+@media(max-width:1050px){.nav-toggle{display:block;margin-left:auto}.admin-header{height:auto;min-height:68px;flex-wrap:wrap;padding:12px 18px}.admin-nav{display:none;order:4;width:100%;padding:12px 0 4px;flex-direction:column;align-items:stretch;gap:0}.admin-nav.is-open{display:flex}.admin-nav a{padding:12px;border-top:1px solid var(--border);font-size:14px}.admin-user{gap:8px}.admin-user button{white-space:nowrap}}
+@media(max-width:520px){.admin-brand small{font-size:7px}.admin-user span{display:none}.admin-header{padding:10px 12px}.nav-toggle{margin-left:auto}}
