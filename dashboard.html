@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Operations Dashboard | Yara Global Express</title><link rel="stylesheet" href="css/admin.css"></head>
 <body>
 <header class="admin-header"><div class="admin-brand"><div class="logo-symbol">Y</div><div><strong>YARA</strong><small>GLOBAL EXPRESS</small></div></div>
-<nav class="admin-nav"><a href="dashboard.html">Dashboard</a><a href="shipments.html">Shipments</a><a href="customers.html">Customers</a><a href="quote-requests.html">Quote Requests</a><a href="accounting.html">Accounting</a><a href="rates.html">Rates</a>
-<a href="reports.html">Reports</a><a href="users.html">Users</a><a href="settings.html">Settings</a></nav>
+<button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button><nav class="admin-nav" id="adminNav"><a href="dashboard.html">Dashboard</a><a href="shipments.html">Shipments</a><a href="customers.html">Customers</a><a href="quote-requests.html">Quote Requests</a><a href="accounting.html">Accounting</a><a href="rates.html">Rates</a>
+<a href="reports.html">Reports</a><a href="users.html">Users</a><a href="settings.html">Settings</a><a href="pickups.html">Pickups</a><a href="branches.html">Branches</a><a href="delivery.html">Delivery Attempts</a><a href="customs.html">Customs Docs</a><a href="claims.html">Claims</a><a href="invoices.html">Invoices</a><a href="support.html">Support Tickets</a></nav>
 <div class="admin-user"><span id="adminName">Admin</span><button id="logoutButton">Logout</button></div></header>
 <main class="dashboard"><div class="dashboard-heading"><div><span>OPERATIONS CONTROL CENTER</span><h1>Dashboard</h1><p>Live overview of courier operations, customers and financial performance.</p></div></div>
 <section class="stats-grid">
@@ -11,4 +11,4 @@
 <div class="content-grid">
 <section class="table-card"><div class="section-card-header"><h2>Recent Shipments</h2><a href="shipments.html">View all</a></div><div class="table-wrapper"><table><thead><tr><th>Tracking</th><th>Customer</th><th>Destination</th><th>Status</th><th>Date</th></tr></thead><tbody id="recentShipments"></tbody></table></div></section>
 <section class="table-card"><div class="section-card-header"><h2>Recent Quote Requests</h2><a href="quote-requests.html">View all</a></div><div class="table-wrapper"><table><thead><tr><th>Customer</th><th>Route</th><th>Status</th><th>Date</th></tr></thead><tbody id="recentRequests"></tbody></table></div></section>
-</div></main><script src="js/core.js"></script><script src="js/dashboard.js"></script></body></html>
+</div></main><script src="js/core.js"></script><script src="js/nav.js"></script><script src="js/dashboard.js"></script></body></html>
