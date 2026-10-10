@@ -1,8 +1,21 @@
-/* Responsive navigation: the account/logout controls are inside the menu. */
+/* Shared responsive menu for every admin page (legacy and new modules). */
 (() => {
-    const toggle = document.getElementById("navToggle");
-    const nav = document.getElementById("adminNav");
+    const header = document.querySelector(".admin-header");
+    if (!header) return;
+
+    const toggle = header.querySelector("#navToggle") || document.getElementById("navToggle");
+    const nav = header.querySelector("#adminNav") || document.getElementById("adminNav");
     if (!toggle || !nav) return;
+
+    // Older pages placed the navigation after </header>; normalize it into the header.
+    if (nav.parentElement !== header) header.appendChild(nav);
+
+    // Put account/logout controls inside the dropdown on every page, including legacy pages.
+    const externalAccount = header.querySelector(":scope > .admin-user");
+    if (externalAccount && !nav.querySelector("#logoutButton")) {
+        externalAccount.classList.add("nav-account");
+        nav.appendChild(externalAccount);
+    }
 
     const setOpen = (open) => {
         nav.classList.toggle("is-open", open);
@@ -10,28 +23,21 @@
         toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
         const icon = toggle.querySelector(".hamburger-lines");
         if (icon) icon.textContent = open ? "✕" : "☰";
+        else toggle.textContent = open ? "✕" : "☰";
     };
 
+    toggle.setAttribute("aria-controls", "adminNav");
     toggle.addEventListener("click", (event) => {
         event.stopPropagation();
         setOpen(!nav.classList.contains("is-open"));
     });
-
     nav.addEventListener("click", (event) => {
-        if (event.target.closest("a") && window.matchMedia("(max-width: 1050px)").matches) setOpen(false);
+        if (event.target.closest("a")) setOpen(false);
     });
-
     document.addEventListener("click", (event) => {
-        if (window.matchMedia("(max-width: 1050px)").matches && nav.classList.contains("is-open") && !nav.contains(event.target) && !toggle.contains(event.target)) {
-            setOpen(false);
-        }
+        if (nav.classList.contains("is-open") && !nav.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
     });
-
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") setOpen(false);
-    });
-
-    window.addEventListener("resize", () => {
-        if (window.matchMedia("(min-width: 1051px)").matches) setOpen(false);
     });
 })();
