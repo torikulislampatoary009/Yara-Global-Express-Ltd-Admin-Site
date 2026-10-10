@@ -1,0 +1,48 @@
+/* Shared operational-module styles. Kept separate from the existing admin theme. */
+.module-dashboard { max-width: 1440px; margin: 0 auto; padding: 28px 24px 48px; }
+.module-card { padding: 22px; background: var(--white, #fff); border: 1px solid var(--border, #e2e8f0); border-radius: 14px; box-shadow: 0 8px 24px rgba(15, 23, 42, .04); }
+.module-intro { margin: 8px 0 22px; color: var(--muted, #64748b); line-height: 1.6; }
+.module-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 4px 0 22px; }
+.module-form label { display: flex; flex-direction: column; gap: 7px; color: var(--dark, #0f172a); font-size: 12px; font-weight: 700; min-width: 0; }
+.module-form input, .module-form select, .module-form textarea { width: 100%; min-width: 0; padding: 11px 12px; border: 1px solid var(--border, #e2e8f0); border-radius: 8px; background: #fff; color: var(--text, #334155); font: inherit; font-size: 13px; }
+.module-form textarea { min-height: 82px; resize: vertical; }
+.module-form .form-actions { display: flex; align-items: end; gap: 10px; }
+.module-message { grid-column: 1 / -1; min-height: 18px; margin: 0; font-size: 13px; color: var(--primary, #0b5ed7); }
+.module-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin: 8px 0 14px; }
+.module-toolbar input { min-width: min(100%, 260px); padding: 10px 12px; border: 1px solid var(--border, #e2e8f0); border-radius: 8px; }
+.module-table-wrap { width: 100%; overflow-x: auto; border: 1px solid var(--border, #e2e8f0); border-radius: 10px; }
+.module-table { width: 100%; border-collapse: collapse; min-width: 760px; }
+.module-table th, .module-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border, #e2e8f0); vertical-align: top; font-size: 13px; }
+.module-table th { background: #f8fafc; color: var(--dark, #0f172a); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.module-table tr:last-child td { border-bottom: 0; }
+.module-actions { display: flex; gap: 7px; }
+.module-actions button { padding: 7px 10px; border: 1px solid var(--border, #e2e8f0); border-radius: 7px; background: #fff; cursor: pointer; font: inherit; font-size: 12px; }
+.module-actions .danger-button { color: #b91c1c; }
+.module-empty { padding: 28px !important; text-align: center !important; color: var(--muted, #64748b); }
+.admin-header { position: relative; z-index: 100; }
+.admin-brand { color: inherit; text-decoration: none; flex-shrink: 0; }
+.brand-copy { display: flex; flex-direction: column; }
+.nav-toggle { flex-shrink: 0; }
+.nav-account { display: flex; align-items: center; gap: 12px; margin-left: 6px; padding-left: 14px; border-left: 1px solid var(--border, #e2e8f0); }
+.nav-account span { color: var(--dark, #0f172a); font-size: 12px; font-weight: 700; }
+.logout-button { padding: 8px 12px; border: 1px solid var(--border, #e2e8f0); border-radius: 8px; color: var(--text, #334155); background: #fff; cursor: pointer; font-size: 12px; font-weight: 700; }
+@media (min-width: 1051px) { .nav-toggle { display: none !important; } .admin-nav { margin-left: auto; } }
+@media (max-width: 1050px) {
+  .admin-header { display: flex; flex-wrap: nowrap; align-items: center; min-height: 72px; padding: 12px 18px; }
+  .nav-toggle { display: grid !important; place-items: center; order: 3; margin-left: auto !important; width: 44px; height: 44px; border-radius: 10px; }
+  .admin-nav { display: none; position: absolute; top: calc(100% + 8px); right: 12px; left: auto; order: initial; width: min(340px, calc(100vw - 24px)); max-height: calc(100dvh - 100px); overflow-y: auto; padding: 8px; flex-direction: column; align-items: stretch; gap: 2px; border: 1px solid var(--border, #e2e8f0); border-radius: 14px; background: #fff; box-shadow: 0 18px 45px rgba(15, 23, 42, .18); }
+  .admin-nav.is-open { display: flex; }
+  .admin-nav a { display: block; padding: 12px 13px; border-radius: 8px; border-top: 0 !important; font-size: 14px !important; }
+  .admin-nav a:hover, .admin-nav a.active { background: #eff6ff; }
+  .nav-account { margin: 8px 0 0; padding: 12px 8px 4px; border-left: 0; border-top: 1px solid var(--border, #e2e8f0); justify-content: space-between; }
+  .module-dashboard { padding: 22px 16px 36px; }
+  .module-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .module-dashboard { padding: 18px 12px 28px; }
+  .module-card { padding: 14px; }
+  .module-form { grid-template-columns: minmax(0, 1fr); gap: 13px; }
+  .module-form .form-actions { align-items: stretch; flex-direction: column; }
+  .module-toolbar { align-items: stretch; flex-direction: column; }
+  .module-toolbar input { width: 100%; }
+}
